@@ -12,7 +12,7 @@ public class Main2 {
     public static void main(String[] args) throws Exception{
         int time = 21;
         ArrayList<Hotspot> hotspotArrayList = Utils.getAllHotspot();
-        File fileFolder = new File("C:\\E\\dataSet\\2018-05-29\\"+ time +"点时间段数据");
+        File fileFolder = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\时间段\\"+ time +"是时间段");
         File[] files = fileFolder.listFiles();
 
         for (File file : files) {
@@ -40,7 +40,7 @@ public class Main2 {
         }
 
         for (Hotspot hotspot : hotspotArrayList) {
-            File outFile = new File("C:\\E\\dataSet\\2018-05-29\\hotspot\\"+ time +"时间段\\" + hotspot.getNumber() + ".txt");
+            File outFile = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\hotspot中sensor的访问情况\\"+ time +"时间段\\" + hotspot.getNumber() + ".txt");
             FileWriter fileWriter = new FileWriter(outFile);
             for (Map.Entry<String, Integer> entry : hotspot.getVisitInfo().entrySet()) {
                 String out = entry.getKey() + "," + entry.getValue() + "\n";

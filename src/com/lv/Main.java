@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Main {
     //获得每个时间段的sensor 对hotspot 的访问情况
     public static void main(String[] args) throws Exception{
-        int num = 21;
-        File fileFolder = new File("C:\\E\\dataSet\\2018-05-29\\"+num+"点时间段数据");
+        int num = 8;
+        File fileFolder = new File("C:\\E\\dataSet\\2018-05-29\\sensor数据(两秒)时间段\\"+num+"时间段数据");
         File[] files = fileFolder.listFiles();
         for (File file : files) {
             ArrayList<Hotspot> hotspotArrayList = Utils.getAllHotspot();
@@ -30,7 +30,7 @@ public class Main {
                 }
             }
 
-            File outFile = new File("C:\\E\\dataSet\\2018-05-29\\"+num+"点时间段访问hotspot\\" + file.getName());
+            File outFile = new File("C:\\E\\dataSet\\2018-05-29\\sensor数据(两秒)时间段\\hotspot中sensor的次数\\"+num+"时间段访问hotspot\\" + file.getName());
             FileWriter fileWriter = new FileWriter(outFile, true);
             for (Hotspot hotspot : hotspotArrayList) {
                 String outString = hotspot.getX() + "," + hotspot.getY() + "," + hotspot.getNumber() +"," + hotspot.getTimes();

@@ -6,11 +6,11 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 public class Utils {
-
+    //从hotspot 文件获得所有的hotpot
     public static ArrayList<Hotspot> getAllHotspot() throws Exception {
         ArrayList<Hotspot> hotspotArrayList = new ArrayList<>();
 
-        File file = new File("C:\\E\\dataSet\\2018-05-29\\hotspot.txt");
+        File file = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\阈值300\\result.txt");
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
