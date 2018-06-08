@@ -7,13 +7,13 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Main3 {
-//    就算最大等待时间
+//    计算最大等待时间
     public static void main(String[] args) throws Exception{
-        int time = 8;
+        int time = 21;
         File fileFolder = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\hotspot中sensor的访问情况\\"+ time+"时间段");
         File[] files = fileFolder.listFiles();
 
-        File outFile = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\最大等待时间\\十分钟\\" +time + "时间段"  + ".txt");
+        File outFile = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\最大等待时间\\五分钟\\" +time + "时间段"  + ".txt");
         FileWriter fileWriter = new FileWriter(outFile, true);
 
         for (File file : files) {
@@ -39,7 +39,7 @@ public class Main3 {
                 double total = Math.pow(0.9, totalSensor);
                 double calcu = 0;
 
-                double t = (double)10 / 60;
+                double t = (double)5 / 60;
 
                 while (calcu < total) {
                     calcu = 1;
@@ -50,6 +50,9 @@ public class Main3 {
                     numOfTimes++;
                 }
                 numOfTimes--;
+                if (numOfTimes > 12) {
+                    numOfTimes = 12;
+                }
                 String out = hotspotNum + "," + numOfTimes + "\n";
                 fileWriter.write(out);
 
