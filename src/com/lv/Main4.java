@@ -10,7 +10,7 @@ public class Main4 {
 //  计算在每个hotspot 等待一定时间碰到的概率
     public static void main(String[] args) throws Exception{
         int interval = 21;
-        File fileFolder = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\hotspot中sensor的访问情况\\" + interval + "时间段");
+        File fileFolder = new File("C:\\E\\dataSet\\2018-05-29\\四秒(改名后的数据)\\hotspot中sensor的访问情况\\" + interval + "时间段");
         File[] files = fileFolder.listFiles();
         for (File file : files) {
             FileReader fileReader = new FileReader(file);
@@ -26,21 +26,26 @@ public class Main4 {
                 }
             }
 
-            File outFile = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\在每个hotspot等待一定时间碰到的概率\\" + interval + "时间段\\" + file.getName());
+            File outFile = new File("C:\\E\\dataSet\\2018-05-29\\四秒(改名后的数据)\\在每个hotspot等待一定时间碰到的概率\\" + interval + "时间段\\" + file.getName());
             FileWriter fileWriter = new FileWriter(outFile, true);
             double t = (double)5 / 60;
-            if (arriviedSensor.size() == 0) {
-                fileWriter.write("没有sensor到达");
-                fileWriter.close();
-            } else {
+//            if (arriviedSensor.size() == 0) {
+//                fileWriter.write("没有sensor到达");
+//                fileWriter.close();
+//            } else {
+//                int maxStayingTime = getMaxStayingTime(arriviedSensor);
+//                for (int i = 1; i <= maxStayingTime; i++) {
+//                    for (Sensor sensor : arriviedSensor) {
+//                        double probability = stayTime(i * t, sensor.getTimes());
+//                        String outString = "等待时间: " + i + "," + sensor.getSensorNum() + "," + probability + "\n";
+//                        fileWriter.write(outString);
+//                    }
+//                }
+//            }
+            if(arriviedSensor.size() > 0) {
+//                获取最大等待时间
                 int maxStayingTime = getMaxStayingTime(arriviedSensor);
-                for (int i = 1; i <= maxStayingTime; i++) {
-                    for (Sensor sensor : arriviedSensor) {
-                        double probability = stayTime(i * t, sensor.getTimes());
-                        String outString = "等待时间: " + i + "," + sensor.getSensorNum() + "," + probability + "\n";
-                        fileWriter.write(outString);
-                    }
-                }
+
             }
 
             fileWriter.close();
@@ -63,9 +68,9 @@ public class Main4 {
         }
 
         numOfTimes--;
-        if (numOfTimes > 12) {
-            numOfTimes = 12;
-        }
+//        if (numOfTimes > 12) {
+//            numOfTimes = 12;
+//        }
         return numOfTimes;
     }
 //    等待t时间碰到的概率

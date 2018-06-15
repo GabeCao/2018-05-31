@@ -10,7 +10,7 @@ public class Utils {
     public static ArrayList<Hotspot> getAllHotspot() throws Exception {
         ArrayList<Hotspot> hotspotArrayList = new ArrayList<>();
 
-        File file = new File("C:\\E\\dataSet\\2018-05-29\\四秒\\阈值300\\result.txt");
+        File file = new File("C:\\E\\dataSet\\2018-05-29\\五秒\\阈值300\\result.txt");
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
