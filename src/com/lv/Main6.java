@@ -6,20 +6,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class Main0622 {
-//将数据分成42个时间段
+public class Main6 {
+//将数据分成14时间段
     public static void main(String[] args) throws Exception{
-        String sensorsDataPath = "C:\\E\\dataSet\\2018-06-22\\sensor数据五秒";
+        String sensorsDataPath = "C:\\Users\\lv\\Desktop\\数据\\2009-03-15\\2009-03-15_5_每五秒取一次数据";
         File fileFolder = new File(sensorsDataPath);
         File[] files = fileFolder.listFiles();
         for (File file: files) {
 
-            for (int i = 1; i <= 42; i++) {
+            for (int i = 1; i <= 14; i++) {
                 FileReader fileReader = new FileReader(file);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 String line;
 
-                File outFile1 = new File("C:\\E\\dataSet\\2018-06-22\\时间段\\" + i + "时间段\\" + file.getName());
+                File outFile1 = new File("C:\\Users\\lv\\Desktop\\数据\\2009-03-15\\2009-03-15_6_将数据分成14个时间段\\" + i + "时间段\\" + file.getName());
 
                 if (!outFile1.exists()) {
                     outFile1.getParentFile().mkdirs();
@@ -29,8 +29,8 @@ public class Main0622 {
                 while ((line = bufferedReader.readLine()) != null) {
                     String[] data = line.split(",");
                     int data_sec = strToSeconds(data[2]);
-                    int sec1 = (i - 1) * 1200;
-                    int sec2 = i * 1200;
+                    int sec1 = (i - 1) * 3600;
+                    int sec2 = i * 3600;
                     if (data_sec >= sec1 && data_sec < sec2) {
                         fileWriter1.write(line + "\n");
                     }

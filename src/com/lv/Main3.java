@@ -10,14 +10,14 @@ public class Main3 {
 //    计算最大等待时间
     public static void main(String[] args) throws Exception {
 //        int time = 8;
-        for (int time = 8; time < 22; time++) {
-            File fileFolder = new File("C:\\E\\dataSet\\2018-05-29\\五秒\\hotspot中sensor的访问情况\\" + time + "时间段");
+        for (int time = 1; time <= 14; time++) {
+            File fileFolder = new File("C:\\Users\\lv\\Desktop\\数据\\2009-03-15\\2009-03-15_7_greedy_hotspot中sensor的访问情况\\" + time + "时间段");
             File[] files = fileFolder.listFiles();
 
-            File outFile = new File("C:\\E\\dataSet\\2018-05-29\\五秒\\最大等待时间\\五分钟(RL)\\" + time + "时间段" + ".txt");
+            File outFile = new File("C:\\Users\\lv\\Desktop\\数据\\2009-03-15\\2009-03-15_8_greedy_1hour_iter\\" + time + ".txt");
             FileWriter fileWriter = new FileWriter(outFile, true);
 
-            for (File file : files) {
+                for (File file : files) {
                 String hotspotNum = file.getName().substring(0, file.getName().lastIndexOf("."));
 
                 ArrayList<Sensor> arrivedSensor = new ArrayList<>();
@@ -51,15 +51,13 @@ public class Main3 {
                         numOfTimes++;
                     }
                     numOfTimes--;
-//                if (numOfTimes > 12) {
-//                    numOfTimes = 12;
-//                }
-                    int i = 1;
-                    while (i <= numOfTimes) {
-                        String out = hotspotNum + "," + i + "\n";
+                    while (numOfTimes > 0) {
+                        String out = hotspotNum + "," + numOfTimes + "\n";
                         fileWriter.write(out);
-                        i++;
+                        numOfTimes--;
                     }
+//                    String out = hotspotNum + "," + numOfTimes + "\n";
+//                    fileWriter.write(out);
                 } else {
                     System.out.println("......");
                 }
